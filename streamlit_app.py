@@ -34,12 +34,12 @@ else:
    
 
 
-st.title("Deblase Document Q&A")
+    st.title("Deblase Document Q&A")
 
-llm=ChatGroq(groq_api_key=groq_api_key,
+    llm=ChatGroq(groq_api_key=groq_api_key,
              model_name="llama3-groq-70b-8192-tool-use-preview")
 
-prompt=ChatPromptTemplate.from_template(
+    prompt=ChatPromptTemplate.from_template(
 """
 Answer the questions based on the provided context only.
 Please provide the most accurate response based on the question
