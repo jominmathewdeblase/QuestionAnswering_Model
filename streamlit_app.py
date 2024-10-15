@@ -17,21 +17,20 @@ load_dotenv()
 
 
 
-# Prompt for GROQ API Key (avoid storing in plain text)
-groq_api_key = st.text_input("GROQ API Key", type="password")
+api_keys = st.columns(2)
+groq_api_key_col, google_api_key_col = api_keys
 
-# Check if GROQ key is entered
-if not groq_api_key:
-    st.info("Please add your GROQ API key to continue.", icon="🗝️")
+groq_api_key = groq_api_key_col.text_input("GROQ API Key", type="password")
+google_api_key = google_api_key_col.text_input("Google API Key", type="password")
+
+# Check if both keys are entered
+if not groq_api_key or not google_api_key:
+    # Display error message for missing keys
+    st.error("Please enter both GROQ and Google API keys to continue.", icon="❗️")
+
 else:
-
-# Prompt for Google API Key
-google_api_key = st.text_input("Google API Key", type="password")
-
-# Check if Google API key is entered
-if not google_api_key:
-    st.info("Please add your Google API key to continue.", icon="🗝️")
-else:
+    # Use the API keys for your application logic
+    # ... your code using llm and Google API client ...
    
 
 
